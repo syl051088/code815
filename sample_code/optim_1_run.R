@@ -37,7 +37,7 @@ out.persample = stochastic_gradient_descent_lsq(y, A, x0,lambda, 1)
 library(rbenchmark)
 
 
-benchmark(out = gradient.descent.lsq.v2_R(y, A, x0, lambda, 0.00001),
-          out = gradient.descent.BB.lsq_R(y, A, x0, lambda),
+benchmark(out = gradient.descent.lsq_R(y, A, x0, lambda, 0.00001),
+          out = gradient_descent_lsq(y, A, x0, lambda, 0.00001),
           replications = 100)
 

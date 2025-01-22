@@ -10,9 +10,9 @@ Rcpp::List gradient_descent_lsq(const arma::vec & y,
                           const arma::vec & x0,
                           double lambda,
                           double gamma,
-                          double tol,
-                          int max_iter,
-                          bool printing) {
+                          double tol       = 1e-4,
+                          int max_iter     = 10000,
+                          bool printing    = false) {
   
   // Precompute
   arma::mat AA = A.t() * A;     // p x p
