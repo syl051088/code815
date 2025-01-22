@@ -21,15 +21,15 @@ out = gradient.descent.BB.lsq_R(y, A, x0, lambda)
 
 ## stochastic gradient descent
 
-out.batch = stochastic.gradient.descent.lsq(y, A, x0,lambda, n)
+out.batch = stochastic_gradient_descent_lsq(y, A, x0,lambda, n)
 #plot(out.batch$loss)
 #out.batch$x
 
-out.minibatch = stochastic.gradient.descent.lsq(y, A, x0,lambda, 100)
+out.minibatch = stochastic_gradient_descent_lsq(y, A, x0,lambda, 100)
 #plot(out.minibatch$loss)
 #out.minibatch$x 
 
-out.persample = stochastic.gradient.descent.lsq(y, A, x0,lambda, 1) 
+out.persample = stochastic_gradient_descent_lsq(y, A, x0,lambda, 1) 
 #plot(out.persample$loss)
 #out.persample$x  
 
