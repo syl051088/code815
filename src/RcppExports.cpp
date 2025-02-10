@@ -11,6 +11,20 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// gaussianMixEM
+Rcpp::List gaussianMixEM(const arma::vec& X, int k, int max_iter, double tol);
+RcppExport SEXP _code815_gaussianMixEM(SEXP XSEXP, SEXP kSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< int >::type k(kSEXP);
+    Rcpp::traits::input_parameter< int >::type max_iter(max_iterSEXP);
+    Rcpp::traits::input_parameter< double >::type tol(tolSEXP);
+    rcpp_result_gen = Rcpp::wrap(gaussianMixEM(X, k, max_iter, tol));
+    return rcpp_result_gen;
+END_RCPP
+}
 // gradient_descent_lsq
 Rcpp::List gradient_descent_lsq(const arma::vec& y, const arma::mat& A, const arma::vec& x0, double lambda, double gamma, double tol, int max_iter, bool printing);
 RcppExport SEXP _code815_gradient_descent_lsq(SEXP ySEXP, SEXP ASEXP, SEXP x0SEXP, SEXP lambdaSEXP, SEXP gammaSEXP, SEXP tolSEXP, SEXP max_iterSEXP, SEXP printingSEXP) {
@@ -64,6 +78,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_code815_gaussianMixEM", (DL_FUNC) &_code815_gaussianMixEM, 4},
     {"_code815_gradient_descent_lsq", (DL_FUNC) &_code815_gradient_descent_lsq, 8},
     {"_code815_loss_ridge", (DL_FUNC) &_code815_loss_ridge, 4},
     {"_code815_stochastic_gradient_descent_lsq", (DL_FUNC) &_code815_stochastic_gradient_descent_lsq, 9},

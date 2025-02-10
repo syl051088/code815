@@ -1,0 +1,26 @@
+```{r}
+library(RcppArmadillo)
+library(code815)
+```
+
+# Gaussian Mixture EM
+```{r}
+set.seed(123)
+n = 1000
+
+# True parameters.
+pi = c(0.3, 0.4, 0.3)  # Mixing proportions
+mu = c(-5, 0, 5)  # Means
+sigma = c(1, 1.5, 1)  # Standard deviations
+
+
+
+components = sample(1:3, size = n, replace = TRUE, prob = pi)
+data = rnorm(n, mean = mu[components], sd = sigma[components])
+
+result = gaussianMixEM(data, k = 3)
+
+print(result)
+
+```
+
